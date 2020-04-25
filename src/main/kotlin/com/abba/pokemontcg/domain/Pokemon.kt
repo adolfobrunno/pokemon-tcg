@@ -12,6 +12,8 @@ data class Pokemon(
     @Column(nullable = false)
     val name: String,
 
+    val number: Int,
+
     @ManyToOne
     val primaryType: Type,
 

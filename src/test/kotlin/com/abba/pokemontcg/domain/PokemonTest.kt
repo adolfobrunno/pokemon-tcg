@@ -34,7 +34,7 @@ class PokemonTest : BaseCoreFunctionalTestCase() {
             session ->
             val grass = Type(1, "Grass")
             session.save(grass)
-            val pokemon = Pokemon(1, "Bulbasaur", grass, null);
+            val pokemon = Pokemon(1, "Bulbasaur", 1, grass , null);
             session.save(pokemon)
             val pokemonFound = session.find(Pokemon::class.java, pokemon.id)
             session.refresh(pokemonFound)

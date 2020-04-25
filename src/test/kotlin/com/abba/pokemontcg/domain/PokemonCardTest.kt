@@ -37,7 +37,7 @@ internal class PokemonCardTest : BaseCoreFunctionalTestCase() {
             session.save(grass)
             session.save(normal)
 
-            val bulbasaur = Pokemon(1, "Bulbasaur", grass, null)
+            val bulbasaur = Pokemon(1, "Bulbasaur", 1, grass, null)
             session.save(bulbasaur)
 
             val normalEnergyCard = EnergyCard(1, normal)
