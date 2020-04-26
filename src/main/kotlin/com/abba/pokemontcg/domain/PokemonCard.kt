@@ -1,28 +1,27 @@
 package com.abba.pokemontcg.domain
 
-import javax.persistence.*
+import javax.persistence.DiscriminatorValue
+import javax.persistence.Entity
+import javax.persistence.ManyToOne
 
 @Entity
-data class PokemonCard(
-
-        @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        val id: Int,
+@DiscriminatorValue("PK")
+class PokemonCard(
+        id: Int,
+        name: String,
+        description: String,
 
         @ManyToOne
         val pokemon: Pokemon,
 
-        @Column(nullable = false)
         val level: Int,
 
-        @Column(nullable = false)
         val hp: Int,
 
         @ManyToOne
         val firstMovement: Movement,
 
         @ManyToOne
-        val secondMovement: Movement ?= null
+        val secondMovement: Movement? = null
 
-
-)
+) : Card(id, name, description)

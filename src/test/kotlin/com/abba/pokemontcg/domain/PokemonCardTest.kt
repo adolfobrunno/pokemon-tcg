@@ -40,13 +40,13 @@ internal class PokemonCardTest : BaseCoreFunctionalTestCase() {
             val bulbasaur = Pokemon(1, "Bulbasaur", 1, grass, null)
             session.save(bulbasaur)
 
-            val normalEnergyCard = EnergyCard(1, normal)
+            val normalEnergyCard = EnergyCard(1, "Normal Energy", "", normal)
             session.save(normalEnergyCard)
 
             val tackle = Movement(1, "Tackle", "", normal, MovementCategory.PHYSICAL, 10, arrayOf(normalEnergyCard).asList())
             session.save(tackle)
 
-            val card = PokemonCard(1, bulbasaur, 10, 50, tackle)
+            val card = PokemonCard(1, "Bulbasaur", "",bulbasaur, 10, 50, tackle)
             session.save(card)
 
             val find = session.find(PokemonCard::class.java, card.id)

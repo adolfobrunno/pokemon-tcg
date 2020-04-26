@@ -1,11 +1,10 @@
 package com.abba.pokemontcg.domain
 
-import junit.framework.Assert
 import org.hibernate.cfg.Configuration
 import org.hibernate.testing.junit4.BaseCoreFunctionalTestCase
 import org.hibernate.testing.transaction.TransactionUtil
 import org.junit.Test
-import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Assertions.assertEquals
 import java.io.IOException
 import java.util.*
 
@@ -35,7 +34,7 @@ internal class MovementTest : BaseCoreFunctionalTestCase() {
             session ->
             val electric = Type(1, "Electric")
             session.save(electric)
-            val energyCard = EnergyCard(1, electric)
+            val energyCard = EnergyCard(1, "Electric Energy", "", electric)
             session.save(energyCard)
             val movement = Movement(1, "Thunder Shock", "A powerful shock", electric, MovementCategory.PHYSICAL, 40, arrayOf(energyCard, energyCard).asList())
             session.save(movement)
